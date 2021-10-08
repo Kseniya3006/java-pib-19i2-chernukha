@@ -21,15 +21,15 @@ public class Lab3 {
     public static double calc(double x, char operation, double y ){
         switch (operation) {
             case '+':
-                result = x + y;
+                return x + y;
             case '-':
-                result = x - y;
+                return x - y;
             case '*':
-                result = x * y;
+                return x * y;
             case '/':
                 if (y == 0)
                     return Double.NaN;
-                else result = x / y;
+                else return x / y;
             default:
                 return Double.NaN;
         }
