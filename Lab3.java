@@ -1,6 +1,7 @@
 package Lab3;
 
 import java.util.Scanner;
+import java.util.Objects;
 
 public class Lab3 {
     static Scanner scanner = new Scanner(System.in);
@@ -11,28 +12,26 @@ public class Lab3 {
         double y = Double.parseDouble(scanner.next());
         double result = calc(x,operation,y);
         String str = scanner.nextLine();
-        System.out.print("The result of the operation: " + result);
+        if (Objects.equals(str, "")) {
+            System.out.println("The result of the operation: " + result);
+        } else {
+            System.out.println("Invalid expression entered!");
+        }
     }
     public static double calc(double x, char operation, double y ){
-        double result = 0;
         switch (operation) {
             case '+':
                 result = x + y;
-                break;
             case '-':
                 result = x - y;
-                break;
             case '*':
                 result = x * y;
-                break;
             case '/':
                 if (y == 0)
-                    System.out.println("NaN");
-                result = x / y;
-                break;
+                    return Double.NaN;
+                else result = x / y;
             default:
-                System.out.println("Incorrect data was entered!");
+                return Double.NaN;
         }
-        return result;
     }
 }
